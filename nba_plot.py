@@ -61,7 +61,8 @@ def get_ages_positions(nba_csv, yaxis_col, positions_col):
     return yaxis, positions
 
 
-def plot(yaxis_values, positions, yaxis_title, xaxis_title, plot_title, box_name):
+def plot(yaxis_values, positions, yaxis_title,
+         xaxis_title, plot_title, box_name):
     """
     Plot nba data
 
