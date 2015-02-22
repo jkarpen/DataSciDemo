@@ -36,27 +36,29 @@ def get_nba_csv():
     return args.nba_csv
 
 
-def get_ages_positions(nba_csv):
+def get_ages_positions(nba_csv, yaxis_col, positions_col):
     """
-    Get ages and positions in file
+    Get yaxis and nba positions in file
 
     :nba_csv: csv of nba data for 1 season
-    :return: tuple of a list of ages and list of positions
+    :yaxis_col: column number for yaxis values
+    :positions_col: column number for positions values
+    :return: tuple of a list of yaxis and list of nba positions
     """
-    ages = []
+    yaxis = []
     positions = []
     with open(nba_csv, 'rb') as csv_handler:
         # remove headers
         csv_handler.readline()
         reader = csv.reader(csv_handler)
         for row in reader:
-            position = row[2]
-            age = row[3]
-            if position in POSITIONS:
-                ages.append(age)
-                positions.append(POSITIONS[position])
+            position_value = row[positions_col]
+            yaxis_value = row[yaxis_col]
+            if position_value in POSITIONS:
+                yaxis.append(yaxis_value)
+                positions.append(POSITIONS[position_value])
 
-    return ages, positions
+    return yaxis, positions
 
 
 def plot(ages, positions):
@@ -126,8 +128,8 @@ def plot(ages, positions):
 
 def main():
     nba_csv = get_nba_csv()
-    ages, positions = get_ages_positions(nba_csv)
-    plot(ages, positions)
+    yaxis, positions = get_ages_positions(nba_csv, 3, 2)
+    plot(yaxis, positions)
 
 
 if __name__ == '__main__':
