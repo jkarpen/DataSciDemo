@@ -58,11 +58,15 @@ def get_ages_positions(nba_csv):
 	return ages, positions
 
 
+def plot(ages, positions):
+	"""
+	Plot nba data
 
-def main():
-	nba_csv = get_nba_csv()
-	ages, positions = get_ages_positions(nba_csv)
+	:ages: list of the ages of players
+	:positions: list of the positions
 
+	:return:  None, data sent to plotly via API  
+	"""
 	data = Data([
 	    Box(
 	        y=ages,
@@ -117,6 +121,13 @@ def main():
 	)
 	fig = Figure(data=data, layout=layout)
 	plot_url = py.plot(fig)
+
+
+def main():
+	nba_csv = get_nba_csv()
+	ages, positions = get_ages_positions(nba_csv)
+	plot(ages, positions)
+
 
 if __name__ == '__main__':
 	sys.exit(main())
