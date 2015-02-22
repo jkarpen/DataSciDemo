@@ -1,9 +1,9 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Plot NBA Data for 2014-2015 
 Age by position box plots
 """
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 import os
 import sys
