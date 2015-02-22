@@ -9,6 +9,16 @@ import csv
 import argparse
 
 import plotly.plotly as py
+from plotly.graph_objs import *
+
+
+POSITIONS = {
+	'PF': 'Power Forward',
+	'SG': 'Shooting Guard',
+	'C': 'Center',
+	'SF': 'Small Forward',
+	'PG': 'Point Guard',
+}
 
 
 def get_nba_csv():
@@ -39,8 +49,9 @@ def get_ages_positions(nba_csv):
 		for row in reader:
 			position = row[2]
 			age = row[3]
-			ages.append(age)
-			positions.append(position)
+			if position in POSITIONS:
+				ages.append(age)
+				positions.append(POSITIONS[position])
 
 	return ages, positions
 
@@ -50,10 +61,60 @@ def main():
 	nba_csv = get_nba_csv()
 	ages, positions = get_ages_positions(nba_csv)
 
-
-	print min(positions)
-	print max(positions)
-	print len(positions)
+	data = Data([
+	    Box(
+	        y=ages,
+	        x=positions,
+	        name='AGE',
+	        boxmean=True,
+	        boxpoints='all',
+	        jitter=0.5,
+	        whiskerwidth=0.5,
+	        fillcolor='rgb(106, 168, 79)',
+	        marker=Marker(
+	            color='rgba(7, 55, 99, 0.5)',
+	            size=4,
+	            symbol='circle',
+	            opacity=0.7
+	        ),
+	        line=Line(
+	            color='rgba(7, 55, 99, 0.5)',
+	            width=2
+	        ),
+	        opacity=1,
+	        showlegend=False
+	    )
+	])
+	layout = Layout(
+	    title='NBA Player Age by Position 2014-15 Season',
+	    showlegend=False,
+	    autosize=True,
+	    width=792,
+	    height=469,
+	    xaxis=XAxis(
+	        title='POS',
+	        range=[-0.6799999999999999, 6.5],
+	        type='category',
+	        autorange=True,
+	        showexponent='all',
+	        side='bottom'
+	    ),
+	    yaxis=YAxis(
+	        title='AGE',
+	        range=[17.944444444444443, 39.05555555555556],
+	        type='linear',
+	        autorange=True,
+	        showexponent='all'
+	    ),
+	    paper_bgcolor='rgb(255, 255, 255)',
+	    plot_bgcolor='rgb(217, 217, 217)',
+	    hovermode='closest',
+	    boxmode='overlay',
+	    boxgap=0.4,
+	    boxgroupgap=0.4
+	)
+	fig = Figure(data=data, layout=layout)
+	plot_url = py.plot(fig)
 
 if __name__ == '__main__':
 	sys.exit(main())
