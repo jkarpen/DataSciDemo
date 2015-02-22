@@ -61,20 +61,24 @@ def get_ages_positions(nba_csv, yaxis_col, positions_col):
     return yaxis, positions
 
 
-def plot(ages, positions):
+def plot(yaxis_values, positions, yaxis_title, xaxis_title, plot_title, box_name):
     """
     Plot nba data
 
     :ages: list of the ages of players
     :positions: list of the positions
+    :yaxis_title: title of the yaxis
+    :xaxis_title: title of the xaxis
+    :plot_title: title of the plot
+    :box_name: name of the box
 
     :return:  None, data sent to plotly via API
     """
     data = Data([
         Box(
-            y=ages,
+            y=yaxis_values,
             x=positions,
-            name='AGE',
+            name=box_name,
             boxmean=True,
             boxpoints='all',
             jitter=0.5,
@@ -95,13 +99,13 @@ def plot(ages, positions):
         )
     ])
     layout = Layout(
-        title='NBA Player Age by Position 2014-15 Season',
+        title=plot_title,
         showlegend=False,
         autosize=True,
         width=792,
         height=469,
         xaxis=XAxis(
-            title='Position',
+            title=xaxis_title,
             range=[-0.6799999999999999, 6.5],
             type='category',
             autorange=True,
@@ -109,7 +113,7 @@ def plot(ages, positions):
             side='bottom'
         ),
         yaxis=YAxis(
-            title='Age',
+            title=yaxis_title,
             range=[17.944444444444443, 39.05555555555556],
             type='linear',
             autorange=True,
@@ -129,7 +133,11 @@ def plot(ages, positions):
 def main():
     nba_csv = get_nba_csv()
     yaxis, positions = get_ages_positions(nba_csv, 3, 2)
-    plot(yaxis, positions)
+    yaxis_title = 'Age'
+    xaxis_title = 'Positions'
+    plot_title = 'NBA Player Age by Position 2014-15 Season'
+    box_title = 'Age'
+    plot(yaxis, positions, yaxis_title, xaxis_title, plot_title, box_title)
 
 
 if __name__ == '__main__':
