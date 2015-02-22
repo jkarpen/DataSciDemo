@@ -60,7 +60,7 @@ def get_ages_positions(nba_csv):
 def main():
 	nba_csv = get_nba_csv()
 	ages, positions = get_ages_positions(nba_csv)
-s
+
 	data = Data([
 	    Box(
 	        y=ages,
