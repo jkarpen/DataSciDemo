@@ -60,7 +60,7 @@ def get_ages_positions(nba_csv):
 def main():
 	nba_csv = get_nba_csv()
 	ages, positions = get_ages_positions(nba_csv)
-
+s
 	data = Data([
 	    Box(
 	        y=ages,
@@ -92,7 +92,7 @@ def main():
 	    width=792,
 	    height=469,
 	    xaxis=XAxis(
-	        title='POS',
+	        title='Position',
 	        range=[-0.6799999999999999, 6.5],
 	        type='category',
 	        autorange=True,
@@ -100,7 +100,7 @@ def main():
 	        side='bottom'
 	    ),
 	    yaxis=YAxis(
-	        title='AGE',
+	        title='Age',
 	        range=[17.944444444444443, 39.05555555555556],
 	        type='linear',
 	        autorange=True,
