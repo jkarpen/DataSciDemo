@@ -7,7 +7,7 @@ San Diego, CA on Sat, Feb 28, 2015.
 
 Requirements:
 
-* This script is intended to work with python 2.7
+* This script is intended to work with Python 2.7
 * A Plotly account and API key 
 
 Here is Plotly's Python API documentation:
