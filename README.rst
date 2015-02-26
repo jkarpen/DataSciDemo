@@ -2,10 +2,8 @@
 Description
 =============
 
-This repo is comprised of a script used to demo plotly and python at the upcoming Data Science FunConference, 
+This repo is comprised of a script and data set used to demo Plotly and Python at the upcoming Data Science FunConference, 
 San Diego, CA on Sat, Feb 28, 2015.
-
-The code is used to create a box plot of NBA data for age by position for 1 season.
 
 Requirements:
 
@@ -20,6 +18,8 @@ Here are two good starter tutorials:
 
 * http://www.blog.pythonlibrary.org/2014/10/27/plotting-data-online-via-plotly-and-python/
 * http://www.wired.com/2013/12/creating-plots-with-python-and-plotly/
+
+The code is used to create a box plot of NBA data for age by position for 1 season.
 
 The data we used contains info on individual NBA players in the 2014-15 season (ongoing). 
 The variables we used for our visual are player position (PG, SF, PF, SG, C) on the x axis and with player age on the y axis.
