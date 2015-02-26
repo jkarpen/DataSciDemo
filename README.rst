@@ -2,7 +2,7 @@
 Description
 =============
 
-This repo is comprised of a script and data set used to demo Plotly and Python at the upcoming Data Science FunConference, 
+This repo is comprised of a script and data set used to demo Plotly and Python at the Data Science FunConference, 
 San Diego, CA on Sat, Feb 28, 2015.
 
 Requirements:
