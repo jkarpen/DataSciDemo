@@ -2,14 +2,19 @@
 Description
 =============
 
-NBA Box Plots for age by position for 1 season
+This repo is comprised of a script used to demo plotly and python at the upcoming Data Science FunConference, 
+San Diego, CA on Sat, Feb 28, 2015.
 
-This script is intended to work with python 2.7
+The code is used to create a box plot of NBA data for age by position for 1 season.
 
-A Plotly account and API key are required for this code to run properly. 
+Requirements:
 
-Here is Plotly's Python API documentation: 
-https://plot.ly/python/overview/
+* This script is intended to work with python 2.7
+* A Plotly account and API key 
+
+Here is Plotly's Python API documentation:
+
+* https://plot.ly/python/overview/
 
 Here are two good starter tutorials:
 
