@@ -10,6 +10,12 @@ Presenters:
 * jkarpen
 * jkrooskos
 
+------------------
+Data Visualization
+------------------
+
+The data visualization may be viewed at `here. <https://plot.ly/~jkarpen/143/nba-player-age-by-position-2014-15-season/>`_
+
 -----------
 Description
 -----------
